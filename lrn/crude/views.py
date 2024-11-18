@@ -9,7 +9,12 @@ def index(request):
 
 #------------create taske------------------#
 def create_task(request):
-    form=taskForms()
+    form =taskForms()
+    if request.method == 'POST':
+        form=taskForms(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("your task added to data sql3 db")
     context={"form":form}
     return render(request,'create_task.html',context)
     #return HttpResponse("hi index")
