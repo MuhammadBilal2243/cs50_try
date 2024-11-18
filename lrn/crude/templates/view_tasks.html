@@ -1,5 +1,8 @@
 <h1>this my views_htmls</h1>
-
+{%if not tasks %}
+<p>no task is availabel</p>
+<a href="{%url 'create_tasks'%}"> please create task</a>
+{% endif %}
 {% for task in tasks %}
 <h1>{{task.title}}</h1>
 <p>{{task.detail}}</p>

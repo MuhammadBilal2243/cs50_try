@@ -34,15 +34,11 @@ def update_task(request,pk):
         form = taskForms(request.POST,instance = task)
         if form.is_valid():
             form.save()
-            return HttpResponse("task updated")
+            return redirect("view_tasks")
     context={"form":form}
     return render(request,'update_task.html',context)
-###---------------delete_task----------------------###
+###-------------------------delete_task--------------------------------###
 def delete_task(request,pk):
     task =tasks.objects.get(id=pk)
     form = task.delete()
     return  redirect("view_tasks")
-
-
-
-
