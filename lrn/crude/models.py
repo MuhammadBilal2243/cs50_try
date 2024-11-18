@@ -6,3 +6,6 @@ class tasks(models.Model):
     detail=models.CharField(max_length=300)
     post_time=models.TimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.title
+
