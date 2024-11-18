@@ -1,7 +1,11 @@
 <h1>this my views_htmls</h1>
+
 {% for task in tasks %}
 <h1>{{task.title}}</h1>
 <p>{{task.detail}}</p>
 <p>time of post {{task.post_time}}</p>
+<a href="{%url 'update_task' task.id %}"> up date links</a>
+<a href="{%url 'delete_task' task.id %}"> delete_task links</a>
+
 <br><br><br><br>
 {% endfor  %}
